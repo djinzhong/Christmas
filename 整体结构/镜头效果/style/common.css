@@ -1,0 +1,41 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+html,body{
+	width: 100%;
+	height: 100%;
+}
+.container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+.bg-adaptive{
+	background-size: 100% 100%;
+}
+.container .page-a {
+	width: 100%;
+	height: 100%;
+	background-image: url(../../../assets/images/page-a.png);
+	position: absolute;
+	z-index: 5;
+}
+
+.container .page-b {
+	width: 100%;
+	height: 100%;
+	background-image: url(../../../assets/images/page-b.png);
+	position: absolute;
+	z-index: 4;
+}
+
+.page-c {
+	width: 100%;
+	height: 100%;
+	background-image: url(../../../assets/images/page-c.png);
+	position: absolute;
+	z-index: 3;
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自适应布局</title>
+		<style type="text/css">
+			section {
+				width: 100%;
+				height: 100%;
+				background: bisque;
+			}
+			.page {
+				width: 5rem;
+				height: 10rem;
+				background: skyblue;
+				font-size: .48rem;
+			}
+		</style>
+	</head>
+	<body>
+		<section>
+			<div class="page">
+				rem跟着html: font-szie变化
+			</div>
+		</section>
+	</body>
+	<script type="text/javascript">
+		var docEl = document.documentElement,
+			// orientationchange 事件是在用户水平或者垂直翻转设备（即方向发生变化）时触发的事件。
+			// 当调整浏览器窗口的大小时，发生 resize 事件。
+			resizeEvt = 'orientationchange' in window ? 'orienttationchange' : 'resize',
+			recalc = function() {
+				docEl.style.fontSize = 100 * (docEl.clientWidth / 750) + 'px'
+			};
+		window.addEventListener(resizeEvt, recalc, false);
+		document.addEventListener('DOMContentLoaded', recalc, false);
+	</script>
+</html>

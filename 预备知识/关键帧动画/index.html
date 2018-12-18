@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>关键帧动画</title>
+		<style type="text/css">
+			.bird {
+				min-width: 91px;
+				min-height: 71px;
+				top: 10%;
+				position: absolute;
+				z-index: 10;
+				background: url(./images/birdFly.png)
+			}
+			.birdFly {
+				/* animation: bird-slow 400ms steps(3) infinite; */
+				
+				animation-name: bird-slow;/*动画名称*/
+				animation-duration: 400ms; /*动画执行时间*/
+				animation-delay: 0s;/*动画启动前的延迟*/
+				animation-timing-function: steps(3, start);/*动画应该如何执行一个周期 */ /*关键帧*/
+				animation-iteration-count: infinite;/*动画播放次数*/
+				animation-direction: normal;/*是否反向播放动画*/
+			}
+			
+			@keyframes bird-slow {
+				0% {background-position-x: -0px}
+				100% {background-position-x: -273px}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bird birdFly"></div>
+	</body>
+</html>

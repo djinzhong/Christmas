@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>异步编程</title>
+		<script src="../js/jquery.js"></script>
+	</head>
+	<body>
+		显示结果：<p class="container"></p>
+		<button>嵌套回调异步</button>
+		<button>$.Deferred异步</button>
+		<script type="text/javascript">
+			$("button:first").on("click", function() {
+				function A(callback) {
+					console.log('A')
+					setTimeout(function() {
+						callback(1)
+					}, 500)
+				}
+				function B(callback, value) {
+					console.log('B')
+					setTimeout(function() {
+						callback(value + 2)
+					}, 1000)
+				}
+				A(function(data1) {
+					B(function(data2) {
+						console.log('callback')
+						$(".container").html("嵌套异步：" + data2)
+					}, data1)
+				})
+			})
+			$("button:last").on("click", function() {
+				function C() {
+					var dtd = $.Deferred(); //创建
+					setTimeout(function() {
+						dtd.resolve(3)
+					}, 500)
+					return dtd;
+				}
+				function D(value) {
+					var dtd = $.Deferred();
+					setTimeout(function() {
+						dtd.resolve(value + 4)
+					}, 500)
+					return dtd;
+				}
+				function E(value) {
+					var dtd = $.Deferred();
+					setTimeout(function() {
+						dtd.resolve(value + 5)
+					}, 1000)
+					return dtd;
+				}
+				C().then(function(data) {
+					console.log(data);
+					return D(data)
+				}).then(function(data) {
+					console.log(data);
+					return E(data)
+				}).then(function(data) {
+					console.log(data);
+					$(".container").html("Deferrred异步处理：" + data)
+				})
+			})
+		</script>
+	</body>
+</html>

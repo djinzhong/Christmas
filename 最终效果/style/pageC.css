@@ -1,0 +1,214 @@
+.page-c {
+	opacity: 0;
+    width  : 100%;
+    height : 100%;
+    background-image: url(../images/page-c.png);
+    position: absolute;
+    z-index: 3;
+}
+
+#snowflake{
+    position:absolute;
+    left:0;
+    top:0;
+    z-index: 999999;
+}
+/**
+ * 窗户
+ */
+
+.window {
+    width: 2.6rem;
+    height: 1.5rem;
+    position: absolute;
+    left: 9.7rem;
+    top: 6.2rem;
+    cursor: pointer;
+    -webkit-perspective: 500px;
+    -moz-perspective: 500px;
+}
+
+.window-content {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    width: 91%;
+    margin: 0 auto;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/**
+ * 窗户背景
+ */
+
+.window-bg {
+    width: 86%;
+    height: 92%;
+    position: absolute;
+    left: 50%;
+    margin-left: -43%;
+    bottom: 0;
+    background: url(../images/page-a.png);
+    background-size: 100% 100%;
+    z-index: -1;
+}
+
+
+/**
+ * 窗户底边
+ * @type {[type]}
+ */
+
+.window:before {
+    content: "";
+    background: url(../images/widnow-before.png);
+    width: 100%;
+    height: 0.17rem;
+    display: block;
+    position: absolute;
+    bottom: 0.05rem;
+    background-size: 100% 100%;
+    z-index: 100;
+}
+
+
+/**
+ * 底边阴影
+ * @type {[type]}
+ */
+
+.window:after {
+    content: "";
+    background: url(../images/window-after.png);
+    width: 100%;
+    height: 0.09rem;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    background-size: 100% 100%;
+    z-index: 100;
+}
+
+.wood {
+    display: block;
+    overflow: hidden;
+}
+
+
+/**
+ * 左侧门
+ */
+
+.window-left {
+    float: left;
+    background: url(../images/window-left.png);
+    -webkit-border-top-left-radius: 0.1rem;
+    -moz-border-top-left-radius: 0.1rem;
+}
+
+
+/**
+ * 右侧门
+ */
+
+.window-right {
+    float: right;
+    background: url(../images/window-right.png);
+    -webkit-border-top-right-radius: 0.1rem;
+    -moz-border-top-left-radius: 0.1rem;
+}
+
+.window-left,
+.window-right {
+    width: 50%;
+    height: 1.3rem;
+    z-index: 110;
+    box-shadow: 0 0 0.15rem #FCF0BC;
+    background-size: 100% 100%;
+}
+
+.window-left.hover {
+    -webkit-transform: scale(0.95) rotateY(60deg) rotateZ(2deg);
+    -moz-transform: scale(0.95) rotateY(60deg) rotateZ(2deg);
+    margin-top: 0.1rem;
+    margin-left: -0.25rem;
+}
+
+.window-right.hover {
+    -webkit-transform: scale(0.95) rotateY(-60deg) rotateZ(-2deg);
+    -moz-transform: scale(0.95) rotateY(-60deg) rotateZ(-2deg);
+    margin-top: 0.1rem;
+    margin-right: -0.25rem;
+}
+
+
+/**
+ * 窗户
+ */
+
+.page-c .window {
+    left: 8rem;
+}
+
+.window-left.close,
+.window-right.close {
+    -webkit-animation: closeWindow 2s forwards;
+    -moz-animation: closeWindow 2s forwards;
+}
+
+@-webkit-keyframes closeWindow {
+    100% {
+        -webkit-transform: scale(1) rotateY(0deg) rotateZ(0deg);
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+@-moz-keyframes closeWindow {
+    100% {
+        -moz-transform: scale(1) rotateY(0deg) rotateZ(0deg);
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+
+/**
+ * 场景背景
+ * @type {[type]}
+ */
+
+.window-scene-bg {
+    background: url(../images/bageCb.png);
+    background-size: 100% 100%;
+    width: 2.26rem;
+    height: 1.2rem;
+    position: absolute;
+    left: 50%;
+    bottom: .1rem;
+    z-index: -1;
+    margin-left: -1.13rem;
+    -webkit-transform: translateZ(-50px);
+    -moz-transform: translateZ(-50px);
+}
+
+
+/**
+ * 关门背景
+ */
+
+.window-close-bg {
+    background: url(../images/windowbg.png);
+    background-size: 100% 100%;
+    width: 0.8rem;
+    height: 0.8rem;
+    position: absolute;
+    left: 50%;
+    bottom: .1rem;
+    margin-left: -0.4rem;
+    -webkit-transform: translateZ(-50px);
+    -moz-transform: translateZ(-50px);
+    opacity: 0;
+    z-index: 500;
+}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>代码封装</title>
+		<link rel="stylesheet" type="text/css" href="style/common.css" />
+		<link rel="stylesheet" type="text/css" href="style/animation.css" />
+		<script src="../../assets/js/jquery.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/christmas.js"></script>
+		<script src="js/pageA.js"></script>
+		<script src="js/pageB.js"></script>
+		<script src="js/pageC.js"></script>
+		<script></script>
+	</head>
+	<body>
+		<section class="container">
+			<!-- 第一幅画面 -->
+			<section class="page-a bg-adaptive"></section>
+			<!-- 第二幅画 -->
+			<section class="page-b bg-adaptive"></section>
+			<!-- 第三幅画 -->
+			<section class="page-c bg-adaptive"></section>
+		</section>
+		选择画面：
+		<select id="choose">
+			<option value="page-a" selected="">1</option>
+			<option value="page-b">2</option>
+			<option value="page-c">3</option>
+		</select>
+	</body>
+	<script type="text/javascript">
+		var doc = document;
+		var docEl = doc.documentElement,
+			resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+			recalc = function() {
+				var container = document.querySelector(".container")
+				var proportion = 900 / 1440;
+				container.style.height = container.clientWidth * proportion + 'px';
+			};
+		window.addEventListener(resizeEvt, recalc, false);
+		doc.addEventListener('DOMContentLoaded', recalc, false);
+	</script>
+</html>

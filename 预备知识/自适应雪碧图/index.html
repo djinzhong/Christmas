@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>自适应雪碧图</title>
+		<script type="text/javascript" src="../js/jquery.js"></script>
+		<script type="text/javascript" src="../js/transition.js"></script>
+		<style type="text/css">
+			.bird {
+				width: .8rem;
+				height: .8rem;
+				position: absolute;
+				z-index: 10;
+				top: 10%;
+				right: 0;
+				background: url(images/birdFly.png);
+				background-size: 300% 100%;
+			}
+				
+			.birdFly {
+				animation: bird-slow 400ms steps(3) infinite;
+				/* -webkit-animation: bird-slow 400ms steps(3) infinite; */
+			}
+			@keyframes bird-slow {
+				0% {background-position: -0% 0%}
+				100% {background-position: -300% 0%}
+			}
+            .button {
+				position: absolute;
+				z-index: 11;
+				left: 0; 
+			}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="bird birdFly"></div>
+		<button class="button">点击运动</button>
+	</body>
+	<script type="text/javascript">
+		var docEl = document.documentElement,
+			// orientationchange 事件是在用户水平或者垂直翻转设备（即方向发生变化）时触发的事件。
+			// 当调整浏览器窗口的大小时，发生 resize 事件。
+			resizeEvt = 'orientationchange' in window ? 'orienttationchange' : 'resize',
+			recalc = function() {
+				docEl.style.fontSize = 100 * (docEl.clientWidth / 750) + 'px'
+			};
+		window.addEventListener(resizeEvt, recalc, false);
+		document.addEventListener('DOMContentLoaded', recalc, false);
+		$("button").on("click",function() {
+			$(".bird").transition({
+				'right': "3rem",
+			}, 10000, 'linear', function() {
+				alert('结束')
+			})
+		})
+	</script>
+</html>
